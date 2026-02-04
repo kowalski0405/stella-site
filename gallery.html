@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фото Стеллы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #fff5f8;
+      color: #4a2c2a;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #ffd6e7, #ffffff);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #4a2c2a;
+      font-weight: 600;
+    }
+
+    /* СЕТКА ГАЛЕРЕИ */
+    .gallery {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    /* КАРТОЧКА ФОТО */
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .caption {
+      padding: 12px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    /* УВЕЛИЧЕННОЕ ФОТО */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Фото Стеллы 📸</h1>
+  <p><a href="index.html">← Вернуться на главную</a></p>
+</header>
+
+<div class="gallery">
+
+  <!-- ФОТО 1 -->
+  <div class="card" onclick="openModal('photo1.jpg')">
+    <img src="photo1.jpg" alt="Стелла">
+    <div class="caption">Это я с Радмилой</div>
+  </div>
+
+  <!-- ФОТО 2 -->
+  <div class="card" onclick="openModal('photo2.jpg')">
+    <img src="photo2.jpg" alt="Стелла">
+    <div class="caption">А тут с Эльдаром</div>
+  </div>
+
+  <!-- ФОТО 3 -->
+  <div class="card" onclick="openModal('photo3.jpg')">
+    <img src="photo3.jpg" alt="Стелла">
+    <div class="caption">Тут я валяюсь мило</div>
+  </div>
+
+ <!-- ФОТО 4 -->
+  <div class="card" onclick="openModal('photo4.jpg')">
+    <img src="photo4.jpg" alt="Стелла">
+    <div class="caption">Здесь с ЛИТЕРЭНЕРЖА лежу</div>
+  </div>
+</div>
+
+<!-- ОКНО УВЕЛИЧЕНИЯ -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <img id="modalImage" src="" alt="Увеличенное фото">
+</div>
+
+<script>
+  function openModal(src) {
+    document.getElementById('modalImage').src = src;
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
